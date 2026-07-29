@@ -71,4 +71,4 @@ async function createUsers() {
   }
 }
 
-export { createRoles, createUsers};
+export { createRoles, createUsers };

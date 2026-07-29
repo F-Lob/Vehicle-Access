@@ -32,20 +32,20 @@ router.use("/users", authenticationMiddleware, userRoutes);
 // Define las rutas para la autenticación /api/auth
 router.use("/auth", authRoutes);
 
-//Rutas de Felipe
+//  Rutas de Felipe  
 /*------------------------------------*/
-//Ruta de Request
+// Ruta de Request
 router.use("/requests", authenticationMiddleware, requestRoutes);
-//Ruta de PDF
+// Ruta de PDF
 /*router.use("/pdf", authenticationMiddleware, pdfRoutes);*/
 
-//Rutas de David
+// Rutas de David
 router.use("/credential", authenticationMiddleware, credentialRoutes);
 
-//Rutas de Cristopher
+//  Rutas de Cristopher
 router.use("/vehicles", authenticationMiddleware, vehicleRoutes);
 
-//Rutas de Johan
+// Rutas de Johan
 router.use("/RegEntry", authenticationMiddleware, entryRoutes);
 
 
