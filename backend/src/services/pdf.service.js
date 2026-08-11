@@ -14,6 +14,7 @@ async function createPDF(file, id) {
       filePath: file.path,
       user: id,
       nombre: user.username,
+      request: requestId,
     });
 
     const PDFSaved = await newPDF.save();

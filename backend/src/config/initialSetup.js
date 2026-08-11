@@ -17,9 +17,9 @@ async function createRoles() {
     if (count > 0) return;
 
     await Promise.all([
-      new Role({ name: "user" }).save(),
       new Role({ name: "admin" }).save(),
-      new Role({ name: "guardia" }).save(),
+      new Role({ name: "operator" }).save(),
+      new Role({ name: "viewer" }).save(),
     ]);
     console.log("* => Roles creados exitosamente");
   } catch (error) {
@@ -39,16 +39,16 @@ async function createUsers() {
     if (count > 0) return;
 
     const admin = await Role.findOne({ name: "admin" });
-    const user = await Role.findOne({ name: "user" });
-    const guardia = await Role.findOne({ name: "guardia" });
+    const operator = await Role.findOne({ name: "operator" });
+    const viewer = await Role.findOne({ name: "viewer" });
 
     await Promise.all([
       new User({
-        username: "user",
-        email: "user@email.com",
+        username: "operator",
+        email: "operator@email.com",
         rut: "12345678-9",
-        password: await User.encryptPassword("user123"),
-        roles: user._id,
+        password: await User.encryptPassword("operator123"),
+        roles: operator._id,
       }).save(),
       new User({
         username: "admin",
@@ -58,11 +58,11 @@ async function createUsers() {
         roles: admin._id,
       }).save(),
       new User({
-        username: "guardia",
-        email: "guardia@email.com",
+        username: "viewer",
+        email: "viewer@email.com",
         rut: "12345678-k",
-        password: await User.encryptPassword("guardia123"),
-        roles: guardia._id,
+        password: await User.encryptPassword("viewer123"),
+        roles: viewer._id,
       }).save(),
     ]);
     console.log("* => Users creados exitosamente");

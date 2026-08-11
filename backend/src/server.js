@@ -4,12 +4,12 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
-import indexRoutes from './routes/index.routes.js';
-import { setupDB } from './config/configDB.js';
-import { createRoles, createUsers } from './config/initialSetup.js';
-import { handleFatalError, handleError } from './utils/errorHandler.js';
-import { PORT, HOST } from './config/configEnv.js';
-import { url } from 'inspector';
+import indexRoutes from "./routes/index.routes.js";
+import { setupDB } from "./config/configDB.js";
+import { createRoles, createUsers } from "./config/initialSetup.js";
+import { handleFatalError, handleError } from "./utils/errorHandler.js";
+import { PORT, HOST } from "./config/configEnv.js";
+import { url } from "inspector";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,9 +26,8 @@ async function setupServer() {
     server.use(morgan("dev"));
 
 
-    //server.use('/uploads', express.static(path.join(__dirname, 'src/uploads')));
+    server.use('/uploads', express.static(path.join(__dirname, 'src/uploads')));
     //Usado en el autos si no funciona quedaria unirlo con uploads o algo asi
-    server.use('/upload', express.static(path.join(path.resolve(), 'src', 'upload')));
 
     server.use("/api", indexRoutes);
 

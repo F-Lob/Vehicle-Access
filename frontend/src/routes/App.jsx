@@ -7,17 +7,15 @@ import Login from './Login';
 import CreateRequest from '../components/CreateRequest';
 import UserRequests from '../components/UserRequests';
 import RequestList from '../components/RequestList';
-//imports johan
-import GuardHome from './HomeGuard.jsx';
-import CreateRegEntry from "../components/CreateRegEntry.jsx";
-import RegEntryList from '../components/RegEntryList';
-import SearchEntry from '../components/SearchEntry.jsx';
 //imports Cristopher
 import VehiclesPage from '../Pages/VehiclesPage';
 import CreateVehicle from '../Pages/CreateVehicle'; 
 import DeleteVehiclePage from '../Pages/DeleteVehiclePage';
 import UserVehicles from '../Pages/UserVehicles';
 import UpdateVehicle from '../Pages/UpdateVehicle'
+import AccessControlPage from '../Pages/AccessControlPage';
+import ActiveAccessRecordsPage from '../Pages/ActiveAccessRecordsPage';
+import AccessHistoryPage from '../Pages/AccessHistoryPage';
 
 import ProtectedRoute from '../components/ProtectedRoute';
 import { AuthProvider } from '../context/AuthContext';
@@ -32,12 +30,9 @@ const App = () => {
           <Route path="/create-request" element={<ProtectedRoute allowedRoles={['user']}><CreateRequest /></ProtectedRoute>} />
           <Route path="/requests" element={<ProtectedRoute allowedRoles={['user']}><UserRequests /></ProtectedRoute>} />
           <Route path="/admin/requests" element={<ProtectedRoute allowedRoles={['admin']}><RequestList /></ProtectedRoute>} />
-          {/* rutas johan */}
-          <Route path="/guard-home" element={<ProtectedRoute allowedRoles={['guardia']}><GuardHome /></ProtectedRoute>} />
-          <Route path="/create-reg-entry" element={<ProtectedRoute allowedRoles={['guardia']}><CreateRegEntry /></ProtectedRoute>} />
-          <Route path="/search" element={<ProtectedRoute allowedRoles={['guardia']}><RegEntryList /></ProtectedRoute>} />
-          <Route path='/search-reg-by-date' element={<ProtectedRoute allowedRoles={['guardia']}><SearchEntry /></ProtectedRoute>} />
-          <Route path='/search-reg-by-plate' element={<ProtectedRoute allowedRoles={['guardia']}><SearchEntry /></ProtectedRoute>} />
+          <Route path="/access-control" element={<ProtectedRoute allowedRoles={['operator']}><AccessControlPage /></ProtectedRoute>} />
+          <Route path="/access-records/active" element={<ProtectedRoute allowedRoles={['operator']}><ActiveAccessRecordsPage /></ProtectedRoute>} />
+          <Route path="/access-history" element={<ProtectedRoute allowedRoles={['admin', 'operator', 'viewer']}><AccessHistoryPage /></ProtectedRoute>} />
           {/* rutas Cristopher */}
           <Route path="/vehicles" element={<VehiclesPage />} />
           <Route path="/vehicles/create-vehicle" element={<ProtectedRoute allowedRoles={['user']}><CreateVehicle /></ProtectedRoute>} />

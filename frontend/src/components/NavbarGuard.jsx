@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { logout, getCurrentUser } from '../services/auth.service.js';
+import '../styles/NavbarGuard.css';
 
 const NavbarGuard = () => {
     const location = useLocation();
@@ -18,18 +19,21 @@ const NavbarGuard = () => {
         }
     };
 
-    if (userRole !== 'guardia') {
-        return null; // No mostrar nada si el usuario no es un guardia
+    if (userRole !== 'operator') {
+        return null;
     }
 
     return (
         <nav className="navbar-guard">
             <ul>
-                <li className={location.pathname === "/guard-home" ? "active" : ""}>
-                    <NavLink to="/guard-home">Panel de Guardia</NavLink>
+                <li className={location.pathname === "/access-control" ? "active" : ""}>
+                    <NavLink to="/access-control">Registrar ingreso</NavLink>
                 </li>
-                <li className={location.pathname === "/search" ? "active" : ""}>
-                    <NavLink to="/search">Registros</NavLink>
+                <li className={location.pathname === "/access-records/active" ? "active" : ""}>
+                    <NavLink to="/access-records/active">Movimientos activos</NavLink>
+                </li>
+                <li className={location.pathname === "/access-history" ? "active" : ""}>
+                    <NavLink to="/access-history">Historial</NavLink>
                 </li>
                 <li className={location.pathname === "/" ? "active" : ""}>
                     <NavLink to="/" onClick={logoutSubmit}>Cerrar Sesión</NavLink>

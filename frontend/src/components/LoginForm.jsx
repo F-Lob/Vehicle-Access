@@ -16,8 +16,8 @@ const LoginForm = () => {
       if (response.status === 200) {
         const storedUser = getCurrentUser();
         const userRole = storedUser?.roles?.[0];
-        if(userRole === 'guardia') {
-          navigate('/guard-home');
+        if(userRole === 'operator') {
+          navigate('/access-control');
         } else {
           navigate('/home');
         }
@@ -35,7 +35,7 @@ const LoginForm = () => {
       <div className="login-container">
         <div className="left-container">
           <div className="title-box">
-            <h1>Estacionamiento UBB</h1>
+                <h1>Control de acceso vehicular</h1>
           </div>
         </div>
         <div className="right-container">

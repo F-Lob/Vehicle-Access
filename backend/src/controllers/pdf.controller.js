@@ -53,9 +53,24 @@ async function deletePDF(req, res) {
   }
 }
 
+async function getPDFsForRequest(req, res) {
+  try {
+    const { requestId } = req.params;
+    const [pdfs, error] = await PDFService.getPDFsForRequest(requestId);
+    if (error) {
+      return respondError(req, res, 404, error);
+    }
+    return respondSuccess(req, res, 200, pdfs);
+  } catch (error) {
+    handleError(error, 'pdfController -> getPDFsForRequest');
+    respondError(req, res, 500, 'Error interno del servidor');
+  }
+}
+
 export default { 
     createPDF, 
     getPDF, 
     getPDFsForPerson, 
-    deletePDF 
+    deletePDF,
+    getPDFsForRequest,
 };

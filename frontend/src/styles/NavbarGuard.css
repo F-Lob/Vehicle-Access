@@ -1,0 +1,42 @@
+.navbar-guard {
+  width: 100%;
+  padding: 12px 24px;
+  background: var(--color-primary);
+  box-shadow: 0 2px 10px rgba(15, 76, 92, 0.18);
+}
+
+.navbar-guard ul {
+  display: flex;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  gap: 8px;
+}
+
+.navbar-guard li:last-child {
+  margin-left: auto;
+}
+
+.navbar-guard a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-guard a:hover,
+.navbar-guard a.active {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 720px) {
+  .navbar-guard ul {
+    flex-wrap: wrap;
+  }
+
+  .navbar-guard li:last-child {
+    margin-left: 0;
+  }
+}

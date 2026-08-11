@@ -1,0 +1,223 @@
+:root {
+  --color-primary: #0f4c5c;
+  --color-primary-dark: #093946;
+  --color-accent: #168a87;
+  --color-accent-dark: #0f6c6a;
+  --color-background: #f3f7f7;
+  --color-surface: #ffffff;
+  --color-text: #172a33;
+  --color-muted: #5d7078;
+  --color-border: #d5e1e3;
+  --color-danger: #b42318;
+  --color-success: #147a5b;
+  --shadow-card: 0 10px 30px rgba(15, 76, 92, 0.12);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(22, 138, 135, 0.16);
+  outline: 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.navbar {
+  width: 100% !important;
+  padding: 12px 24px !important;
+  background: var(--color-primary) !important;
+  box-shadow: 0 2px 10px rgba(15, 76, 92, 0.18) !important;
+}
+
+.navbar ul {
+  display: flex !important;
+  max-width: 1120px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  list-style: none !important;
+  gap: 8px;
+}
+
+.navbar li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Contenedores de las vistas existentes. */
+.container,
+.create-request,
+.request-list,
+.user-requests,
+.vehicles-page,
+.create-vehicle-container,
+.user-vehicles-page,
+.delete-vehicle-page,
+.vehicle-editor-page,
+.access-page {
+  color: var(--color-text) !important;
+}
+
+.create-request,
+.request-list,
+.user-requests,
+.vehicle-editor-page,
+.access-page {
+  max-width: 1120px !important;
+  margin: 32px auto !important;
+  padding: 28px !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius) !important;
+  background: var(--color-surface) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.vehicles-page,
+.create-vehicle-container,
+.user-vehicles-page,
+.delete-vehicle-page,
+.vehicle-form-background {
+  min-height: 100vh !important;
+  background: var(--color-background) !important;
+}
+
+.vehicles-page h1,
+.create-vehicle-container h1,
+.user-vehicles-page h1,
+.delete-vehicle-page h1,
+.vehicle-editor-page h2,
+.create-request h2,
+.request-list h2,
+.user-requests h2 {
+  color: var(--color-primary) !important;
+}
+
+.card,
+.vehicle-card,
+.request-list li,
+.user-requests li,
+.vehicle-form-container,
+.vehicle-form-wrapper .vehicle-form-container {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius) !important;
+  background: var(--color-surface) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.button-green,
+.create-request button,
+.request-list button,
+.user-requests button,
+.vehicle-form button,
+.vehicle-editor-page button,
+.vehicle-card button {
+  background: var(--color-primary) !important;
+}
+
+.approve-button {
+  background: var(--color-success) !important;
+}
+
+.reject-button,
+.vehicle-card button,
+.deletereg-button {
+  background: var(--color-danger) !important;
+}
+
+.go-back,
+.back-button,
+.back-buttonn {
+  color: var(--color-primary) !important;
+  text-decoration: none;
+}
+
+.access-table th {
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+.modal-content {
+  border-radius: var(--radius) !important;
+  background: var(--color-surface) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.modal-close {
+  background: var(--color-primary) !important;
+}
+
+@media (max-width: 720px) {
+  .create-request,
+  .request-list,
+  .user-requests,
+  .vehicle-editor-page,
+  .access-page {
+    margin: 16px !important;
+    padding: 20px !important;
+  }
+}
