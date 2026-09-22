@@ -63,7 +63,3 @@ El control manual de acceso hace dificil conocer quien ingreso, con que vehiculo
 ## Estado del proyecto
 
 El sistema se encuentra en etapa de evolucion tecnica. Cuenta con los flujos funcionales principales y se esta trabajando en mejorar la consistencia de la API, seguridad, pruebas y mantenibilidad para una version de produccion.
-
-## Licencia
-
-Todavia no se ha incluido un archivo de licencia para el repositorio.
